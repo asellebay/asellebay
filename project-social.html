@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Social Scheduler App</title>
+  <title>Social Scheduler App – Aselle Bay</title>
   <style>
     body {
       font-family: 'Arial', sans-serif;
@@ -12,13 +12,21 @@
       line-height: 1.6;
       margin: 0;
       padding: 0;
+      overflow-x: hidden;
     }
 
     header {
-      background-color: #2c9c7b;
+      background-color: #4e8d6f;
       color: white;
       padding: 30px 0;
       text-align: center;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+    header.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     main {
@@ -31,11 +39,13 @@
       color: #2c9c7b;
       font-size: 2.2em;
       margin-bottom: 10px;
+      user-select: none;
     }
 
     h2 {
       color: #4e8d6f;
       margin-top: 40px;
+      user-select: none;
     }
 
     .hero-image {
@@ -45,10 +55,24 @@
       border-radius: 10px;
       box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
       margin: 20px 0;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+    .hero-image.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    p {
+    p, ul {
       margin: 15px 0;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+    p.visible, ul.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     ul {
@@ -61,16 +85,28 @@
       text-align: center;
       padding: 15px 0;
       margin-top: 60px;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease, transform 1s ease;
+      user-select: none;
+    }
+    footer.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
+    /* Back to Portfolio link always visible */
     a.back-link {
       display: inline-block;
       margin-top: 30px;
       color: #2c9c7b;
       text-decoration: none;
       font-weight: bold;
+      user-select: none;
+      opacity: 1;          /* fully visible */
+      transform: none;     /* no translate */
+      transition: none;    /* no animation */
     }
-
     a.back-link:hover {
       text-decoration: underline;
     }
@@ -90,7 +126,6 @@
 
   <header>
     <h1>Social Scheduler App</h1>
-    <p>Smart Calendar Sync & Hangout Planner</p>
   </header>
 
   <main>
@@ -142,5 +177,30 @@
     <p>&copy; 2025 Aselle Bay. All rights reserved.</p>
   </footer>
 
+  <script>
+    const elements = [
+      document.querySelector('header'),
+      ...document.querySelectorAll('main img, main h2, main p, main ul'),
+      document.querySelector('footer')
+    ];
+
+    function isInViewport(el) {
+      const rect = el.getBoundingClientRect();
+      return rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.85;
+    }
+
+    function checkAnimations() {
+      elements.forEach(el => {
+        if (!el.classList.contains('visible') && isInViewport(el)) {
+          el.classList.add('visible');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', checkAnimations);
+    window.addEventListener('load', checkAnimations);
+  </script>
+
 </body>
 </html>
+

@@ -1,99 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Aselle Bay's Portfolio!</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(to right, #4e8d6f, #669c83);
-            font-family: Arial, sans-serif;
-            color: #fff;
-            text-align: center;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aselle Bay's Portfolio!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@900&display=swap" rel="stylesheet" />
+  <style>
+    html {
+      background: linear-gradient(to right, #4e8d6f, #669c83);
+      height: 100%;
+    }
 
-        .container {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 0 20px;
-        }
+    body {
+      margin: 0;
+      padding: 0;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+    }
 
-        h1, p, .btn {
-            opacity: 0;
-            animation-fill-mode: forwards;
-        }
+    .container {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+    }
 
-        h1 {
-            font-size: 3em;
-            margin-bottom: 0.5em;
-            animation: fadeInUp 1s ease forwards;
-            animation-delay: 0.2s;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-        }
+    .Words {
+      font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+      font-size: 68px;
+      font-weight: 900;
+      letter-spacing: -2px;
+      word-spacing: 15px;
+      text-transform: uppercase;
+      transform: translate3d(0, 0, 0);
+      -webkit-font-smoothing: antialiased;
+      -webkit-font-kerning: normal;
+      -webkit-text-size-adjust: 100%;
+      position: relative;
+      margin-bottom: 40px;
+      max-width: 90vw;
+      box-sizing: border-box;
+    }
 
-        p {
-            font-size: 1.2em;
-            margin-bottom: 1em;
-            animation: fadeInUp 1s ease forwards;
-            animation-delay: 0.6s;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.15);
-        }
+    .Words-line {
+      height: 50px;
+      overflow: hidden;
+      position: relative;
+      left: 0;
+      padding-bottom: 20px;
+    }
 
-        .btn {
-            background-color: #fff3e0;
-            color: #070a0e;
-            padding: 12px 25px;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            font-size: 1em;
-            transition: background-color 0.3s, color 0.3s;
-            animation: fadeInUp 1s ease forwards;
-            animation-delay: 1s;
-            display: inline-block;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+    .Words-line:nth-child(odd) {
+      transform: skew(60deg, -30deg) scaleY(0.66667);
+    }
 
-        .btn:hover {
-            background-color: #ffd9b3;
-            color: #6a9987;
-        }
+    .Words-line:nth-child(even) {
+      transform: skew(0deg, -30deg) scaleY(1.33333);
+    }
 
-        @keyframes fadeInUp {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+    .Words-line p,
+    .Words-line a {
+      height: 50px;
+      line-height: 45px;
+      padding: 0 10px;
+      transition: all 0.4s ease-in-out;
+      transform: translate3d(0, 0, 0);
+      vertical-align: top;
+      white-space: nowrap;
+      margin: 0;
+      display: inline-block;
+      text-decoration: none;
+      color: inherit;
+    }
 
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 2em;
-            }
-            p {
-                font-size: 1em;
-            }
-            .btn {
-                font-size: 0.9em;
-                padding: 10px 20px;
-            }
-        }
-    </style>
+    .Words-line.welcome a {
+      background-color: #fff3e0;
+      color: #070a0e;
+      padding: 5px 20px;
+      border-radius: 5px;
+      font-size: 0.8em;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transform: none !important;
+      transition: background-color 0.3s, color 0.3s;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    .Words-line.welcome a:hover {
+      background-color: #ffd9b3;
+      color: #6a9987;
+    }
+
+    .Words:hover .Words-line:not(.welcome) p,
+    .Words:hover .Words-line:not(.welcome) a {
+      transform: translate3d(0, -50px, 0);
+    }
+
+    @media (max-width: 600px) {
+      .Words {
+        font-size: 40px;
+        word-spacing: 10px;
+      }
+
+      .Words-line.welcome a {
+        font-size: 0.7em;
+        padding: 4px 16px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Aselle Bay's Portfolio</h1>
-        <p>Designing with purpose, solving with empathy.</p>
-        <a href="home.html" class="btn">Welcome</a>
+  <div class="container">
+    <div class="Words">
+      <div class="Words-line"><p>Hello!</p></div>
+      <div class="Words-line"><p>I'm</p></div>
+      <div class="Words-line"><p>Aselle</p></div>
+      <div class="Words-line"><p>Bay</p></div>
+      <div class="Words-line"><p>Designer</p></div>
+      <div class="Words-line"><p>& Coder</p></div>
+      <div class="Words-line welcome">
+        <a href="home.html">Welcome</a>
+      </div>
     </div>
+  </div>
 </body>
 </html>
+
