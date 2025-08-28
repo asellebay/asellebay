@@ -103,7 +103,7 @@
     a.back-link {
       display: inline-block;
       margin-top: 30px;
-      color: #2c9c7b;
+      color: #2c9c7b !important;
       text-decoration: none;
       font-weight: bold;
       user-select: none;
@@ -137,16 +137,15 @@
   </header>
 
   <main>
-    <img src="starbucks-wireframe.png" alt="Starbucks app redesign mockup" class="hero-image fade-slide"/>
 
     <h2 class="fade-slide">Overview</h2>
     <p class="fade-slide">
-      In this project, I reimagined the Starbucks mobile app with a user-centered approach. The redesign focuses on simplifying navigation, reducing friction in the ordering process, and enhancing visual hierarchy — all while aligning closely with Starbucks’ brand guidelines and aesthetic. Through iterative prototyping and usability testing, I aimed to create a more intuitive and enjoyable app experience for everyday users.
+      For this project, I redesigned the Starbucks mobile app with a strong focus on the user experience. My goal was to make navigation more straightforward, streamline the ordering process, and improve visual hierarchy—while staying true to Starbucks’ branding and style. Using iterative prototyping and usability testing, I worked to build an app experience that feels more intuitive, seamless, and enjoyable for everyday users.
     </p>
 
     <h2 class="fade-slide">Problem</h2>
     <p class="fade-slide">
-      Through research and user interviews, many people expressed that the app feels cluttered, navigation is unclear, and the design lacks consistency across screens. Common pain points included difficulties with ordering ahead, finding rewards, and customizing drinks—tasks that users found both frustrating and time-consuming.
+      Through research and user interviews, many people expressed that the app feels cluttered, navigation is unclear, and the design lacks consistency across screens. Common points included difficulties with ordering ahead, finding rewards, and customizing drinks—tasks that users found both frustrating and time-consuming.
     </p>
 
     <h2 class="fade-slide">Goals</h2>
@@ -165,19 +164,24 @@
       <li>Iterated designs based on usability feedback</li>
     </ul>
 
+    <!-- Hero image moved here -->
+    <img src="Starbucks-App-Wireframe.png" alt="Starbucks app redesign mockup" class="hero-image fade-slide"/>
+
     <h2 class="fade-slide">Final Designs</h2>
     <p class="fade-slide">
-      The new design makes ordering the main focus right on the home screen, so users don’t get distracted by ads or promos. There’s a simple bottom navigation bar to help people get around the app easily. Plus, bigger buttons and an easier drink customization process make ordering quicker and less frustrating, with colors that are easy on the eyes too. Below are a few sample screens:
+      The redesigned home screen brings ordering to the forefront, removing distractions like ads and promotions so users can focus on the task at hand. A streamlined bottom navigation bar improves wayfinding, while larger buttons and a simplified customization flow reduce friction in the ordering process. Based on feedback from user interviews and usability testing, this layout prioritizes speed and ease of use for frequent customers. The updated color palette and typography maintain Starbucks' recognizable brand while improving visual hierarchy and accessibility.
     </p>
-
-    <!-- <img src="images/starbucks-redesign-screens.png" alt="Redesigned Starbucks app screens" class="hero-image fade-slide"/> -->
 
     <h2 class="fade-slide">Figma Design</h2>
     <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/design/sIGH4tOyTPuXpw1AgYgDuJ/Starbucks-App-User-Flow?node-id=0-1&embed-host=share" allowfullscreen></iframe>
 
     <h2 class="fade-slide">Outcome</h2>
     <p class="fade-slide">
-      The redesign addresses key pain points identified through research, offering a cleaner navigation structure and simplified ordering process. By focusing on usability and brand consistency, the new design is expected to enhance user satisfaction, reduce friction in key tasks like ordering and rewards access, and ultimately encourage more frequent app use.
+      This redesign was shaped by real user feedback — people felt the original app was too cluttered, hard to navigate, and just not enjoyable to use. I focused on simplifying the experience and making it easier to complete everyday tasks like ordering ahead, customizing drinks, or checking rewards. With a cleaner layout, more intuitive navigation, and a more consistent visual style, the app now feels more aligned with what users actually want.
+
+      The bottom navigation helps users move through the app without getting lost, and the new home screen prioritizes ordering without unnecessary distractions. I also redesigned the drink customization flow to be quicker and less frustrating, especially for regular customers.
+
+      Throughout the process, I made sure the design stayed true to the Starbucks brand — but more focused on usability and accessibility. Overall, this project led to a more polished, user-friendly app that’s easier to navigate, more rewarding to use, and better suited to everyday habits.
     </p>
 
     <a href="home.html" class="back-link">← Back to Portfolio</a>
@@ -188,46 +192,28 @@
   </footer>
 
   <script>
-    // Scroll animation helper
     const scrollElements = document.querySelectorAll('.fade-slide, header, footer, .back-link');
 
     function elementInView(el, offset = 0) {
       const elementTop = el.getBoundingClientRect().top;
-      return (
-        elementTop <= 
-        ((window.innerHeight || document.documentElement.clientHeight) - offset)
-      );
+      return elementTop <= ((window.innerHeight || document.documentElement.clientHeight) - offset);
     }
 
     function displayScrollElement(el) {
       el.classList.add('visible');
     }
 
-    function hideScrollElement(el) {
-      el.classList.remove('visible');
-    }
-
     function handleScrollAnimation() {
       scrollElements.forEach(el => {
         if (elementInView(el, 100)) {
           displayScrollElement(el);
-        } else {
-          // Optional: hide if out of view
-          // hideScrollElement(el);
         }
       });
     }
 
-    window.addEventListener('scroll', () => {
-      handleScrollAnimation();
-    });
-
-    // Run on load
-    window.addEventListener('load', () => {
-      handleScrollAnimation();
-    });
+    window.addEventListener('scroll', handleScrollAnimation);
+    window.addEventListener('load', handleScrollAnimation);
   </script>
 
 </body>
 </html>
-
