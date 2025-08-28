@@ -50,7 +50,7 @@
 
     .hero-image {
       width: 100%;
-      max-height: 400px;
+      max-height: 900px;
       object-fit: cover;
       border-radius: 10px;
       box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
@@ -64,19 +64,43 @@
       transform: translateY(0);
     }
 
-    p, ul {
+    p, ul, .figma-embed {
       margin: 15px 0;
       opacity: 0;
       transform: translateY(30px);
       transition: opacity 1s ease, transform 1s ease;
     }
-    p.visible, ul.visible {
+    p.visible, ul.visible, .figma-embed.visible {
       opacity: 1;
       transform: translateY(0);
     }
 
     ul {
       margin-left: 20px;
+    }
+
+    .figma-embed h2 {
+      margin-bottom: 20px;
+    }
+
+    .figma-container {
+      position: relative;
+      padding-bottom: 76.25%;
+      height: 0;
+      overflow: hidden;
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .figma-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 12px;
     }
 
     footer {
@@ -95,7 +119,6 @@
       transform: translateY(0);
     }
 
-    /* Back to Portfolio link always visible */
     a.back-link {
       display: inline-block;
       margin-top: 30px;
@@ -103,9 +126,6 @@
       text-decoration: none;
       font-weight: bold;
       user-select: none;
-      opacity: 1;          /* fully visible */
-      transform: none;     /* no translate */
-      transition: none;    /* no animation */
     }
     a.back-link:hover {
       text-decoration: underline;
@@ -129,11 +149,11 @@
   </header>
 
   <main>
-    <img src="images/social-hero.jpg" alt="Social Scheduler mockup" class="hero-image" />
-
     <h2>Overview</h2>
     <p>
-     My friends and I often had trouble finding time to hang out, so I created Social Scheduler to help small groups sync their calendars and quickly see when everyone’s free. It takes the hassle out of planning and makes meeting up easier.
+      My friends and I were always trying to find time to hang out, but coordinating schedules was a mess—different calendar apps, group chats that went nowhere, and lots of back and forth. So I designed FriendFlow, a social scheduler that makes it easier for small groups to sync calendars and instantly see when everyone’s free.
+
+      Instead of endless texting and confusion, FriendFlow connects to Google, Apple, and Outlook calendars, highlights shared availability, and keeps input minimal. I surveyed people to understand what made group planning so frustrating, mapped out the main pain points (like scheduling and confirming), and designed a clean, simple interface with just enough privacy control to make sharing feel comfortable.
     </p>
 
     <h2>Challenge</h2>
@@ -156,7 +176,18 @@
       <li>Simple privacy controls to manage what’s shared</li>
     </ul>
 
-    <img src="images/social-ui-screens.png" alt="UI screens for the Social Scheduler app" class="hero-image" />
+    <!-- 👇 Image now placed under UX Approach -->
+    <img src="Calanderappwebflow.png" alt="Social Scheduler mockup" class="hero-image" />
+
+    <div class="figma-embed">
+      <h2>Figma Design</h2>
+      <div class="figma-container">
+        <iframe 
+          src="https://embed.figma.com/design/VeWN4rfdaeuwJTSI08IWBt/Friend-Calendar?node-id=0-1&embed-host=share" 
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
 
     <h2>Core Features</h2>
     <ul>
@@ -167,7 +198,11 @@
 
     <h2>Outcome</h2>
     <p>
-      The Social Scheduler prototype was met with enthusiasm in usability testing. Users appreciated the clarity and automation, saying it “felt like a group planner that actually saves time.” The concept is currently being explored for a beta launch.
+      When I tested the Social Scheduler prototype, the response was really positive. People kept mentioning how much simpler it made group planning feel—especially compared to the usual back-and-forth in group chats. One person even said it “felt like a group planner that actually saves time,” which really summed up what I was going for.
+
+      The whole idea came from a real problem I ran into all the time with my own friends—we’d want to hang out, but it was always a mess trying to coordinate with everyone’s schedules across different calendar apps. So I built something to fix that.
+
+      In testing, people liked how the interface highlighted shared availability right away and didn’t require a bunch of extra steps. I kept privacy in mind too, so users could choose what they wanted to share without overthinking it. After seeing how much the prototype helped, I knew I was onto something. Now I’m diving into building FriendFlow into a real app that my friends and I—and hopefully others too—can actually use to make planning way less of a headache.
     </p>
 
     <a href="home.html" class="back-link">&larr; Back to Portfolio</a>
@@ -180,7 +215,7 @@
   <script>
     const elements = [
       document.querySelector('header'),
-      ...document.querySelectorAll('main img, main h2, main p, main ul'),
+      ...document.querySelectorAll('main img, main h2, main p, main ul, .figma-embed, .back-link'),
       document.querySelector('footer')
     ];
 
@@ -202,5 +237,3 @@
   </script>
 
 </body>
-</html>
-
