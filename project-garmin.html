@@ -25,10 +25,7 @@
       transition: opacity 1s ease, transform 1s ease;
       user-select: none;
     }
-    header.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    header.visible { opacity: 1; transform: translateY(0); }
 
     main {
       max-width: 900px;
@@ -54,10 +51,7 @@
       transform: translateY(30px);
       transition: opacity 0.8s ease, transform 0.8s ease;
     }
-    .fade-slide.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .fade-slide.visible { opacity: 1; transform: translateY(0); }
 
     .hero-image {
       width: 100%;
@@ -70,19 +64,16 @@
       transition: transform 0.3s ease, opacity 0.3s ease;
       user-select: none;
     }
-    .hero-image:hover {
-      transform: scale(1.03);
-      opacity: 1;
-      cursor: pointer;
-    }
+    .hero-image:hover { transform: scale(1.03); opacity: 1; cursor: pointer; }
 
-    p, ul {
-      margin: 15px 0;
-      user-select: text;
-    }
+    p, ul { margin: 15px 0; user-select: text; }
+    ul { margin-left: 20px; }
 
-    ul {
-      margin-left: 20px;
+    .figma-embed { margin: 20px 0; }
+    .figma-embed iframe {
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      width: 100%;
+      height: 450px;
     }
 
     footer {
@@ -96,15 +87,12 @@
       transform: translateY(30px);
       transition: opacity 1s ease, transform 1s ease;
     }
-    footer.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    footer.visible { opacity: 1; transform: translateY(0); }
 
     a.back-link {
       display: inline-block;
       margin-top: 30px;
-      color: #2c9c7b;
+      color: #2c9c7b !important;
       text-decoration: none;
       font-weight: bold;
       user-select: none;
@@ -112,42 +100,31 @@
       transform: translateY(20px);
       transition: opacity 1s ease 0.3s, transform 1s ease 0.3s;
     }
-    a.back-link.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    a.back-link:hover {
-      text-decoration: underline;
-    }
+    a.back-link.visible { opacity: 1; transform: translateY(0); }
+    a.back-link:hover { text-decoration: underline; }
 
     @media (max-width: 600px) {
-      h1 {
-        font-size: 1.7em;
-      }
-
-      .hero-image {
-        max-height: 250px;
-      }
+      h1 { font-size: 1.7em; }
+      .hero-image { max-height: 250px; }
+      .figma-embed iframe { height: 300px; }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>UX Design for Garmin Devices</h1>
+    <h1>Garmin Multi‑Sport UI</h1>
   </header>
 
   <main>
-    <img src="images/garmin-hero.jpg" alt="Garmin multi-sport UI mockup" class="hero-image fade-slide" />
-
     <h2 class="fade-slide">Overview</h2>
     <p class="fade-slide">
-      This UX project focuses on improving the flexibility of Garmin’s multi-sport activity tracking based on both personal experience and user research. While Garmin offers features like "Resume Later" or "Change Sport," they’re either hidden behind complex menus or limited to certain devices.
+      This UX project focuses on solving a major point in Garmin’s multi-sport tracking experience: the inability to resume a previous workout after starting a new one. Inspired by both user research and personal experience, the project introduces a new "Resume Previous Activity" flow designed to keep workouts flexible, continuous, and frustration-free.
     </p>
 
     <h2 class="fade-slide">Problem</h2>
     <p class="fade-slide">
-      Switching between activities during workouts is often frustrating. Currently, the Garmin app requires ending one session before starting another, which breaks data continuity and disrupts the workout flow. Many users—including myself—experience confusion and data loss when trying to pause one activity (like biking), switch to a different one (like running), and then return to the first. Existing features like “Change Sport” or “Resume Later” are either hidden, inconsistent across devices, or don’t fully solve the problem.
+      Garmin’s current system forces users to end one workout before starting another, breaking the continuity needed for multi-sport users and outdoor athletes. For example, if someone switches from biking to running and later wants to resume biking, there’s no option to reopen the original session. As a result, workout data becomes fragmented across multiple files, creating confusion—especially during high-effort transitions when users don’t have time to navigate menus or troubleshoot tracking.
     </p>
 
     <h2 class="fade-slide">Objectives</h2>
@@ -156,23 +133,29 @@
       <li>Simplify switching between sports during workouts with clear, easy-to-find controls</li>
       <li>Ensure the interface is intuitive and efficient on small wearable screens</li>
       <li>Maintain accurate and continuous tracking across activity transitions</li>
+      <li>Design a "Recent Sessions" hub to quickly resume activity</li>
     </ul>
 
-    <h2 class="fade-slide">Design Approach</h2>
+    <h2 class="fade-slide">Design Process</h2>
+    <p class="fade-slide">I followed a user-centered approach:</p>
     <ul class="fade-slide">
       <li>Researched workflows of triathletes and multi-sport users</li>
       <li>Mapped pain points in Garmin’s existing flow</li>
       <li>Created UI mockups and interaction flows tailored for wearable devices</li>
+      <li>Iterated designs based on usability feedback</li>
     </ul>
 
-    <img src="images/garmin-ui-screens.png" alt="Garmin UI screen examples" class="hero-image fade-slide" />
+    <img src="c:\Users\Aselle\Downloads\Wireframe-garmin.jpg" alt="Garmin multi-sport UI mockup" class="hero-image fade-slide" />
 
-    <h2 class="fade-slide">Key Features</h2>
-    <ul class="fade-slide">
-      <li>“Pause & Switch” action: preserves session and context</li>
-      <li>Clear visual cues for current vs paused activity</li>
-      <li>Simple toggle to resume original activity seamlessly</li>
-    </ul>
+    <h2 class="fade-slide">Final Designs</h2>
+    <p class="fade-slide">
+      The updated design makes switching between activities smoother and more consistent. Features like ‘Pause & Switch’ and ‘Resume Previous’ appear right when they’re needed, cutting down on extra taps and reducing mental load during workouts. Clear icons and layout make it easy to see which activity is active and which ones are paused.
+    </p>
+
+    <h2 class="fade-slide">Figma Design</h2>
+    <div class="figma-embed fade-slide">
+      <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/design/GASNFm3OhRw8HclyERa5ZQ/Garmin-Redesign?node-id=0-1&embed-host=share" allowfullscreen></iframe>
+    </div>
 
     <h2 class="fade-slide">Impact</h2>
     <p class="fade-slide">
@@ -183,48 +166,30 @@
   </main>
 
   <footer>
-    <p>&copy; 2025 Aselle Bay. All rights reserved.</p>
+    <p>© 2025 Aselle Bay. All rights reserved.</p>
   </footer>
 
   <script>
-    // Scroll animation helper
     const scrollElements = document.querySelectorAll('.fade-slide, header, footer, .back-link');
 
     function elementInView(el, offset = 0) {
       const elementTop = el.getBoundingClientRect().top;
-      return (
-        elementTop <= 
-        ((window.innerHeight || document.documentElement.clientHeight) - offset)
-      );
+      return elementTop <= ((window.innerHeight || document.documentElement.clientHeight) - offset);
     }
 
-    function displayScrollElement(el) {
-      el.classList.add('visible');
-    }
-
-    function hideScrollElement(el) {
-      el.classList.remove('visible');
-    }
+    function displayScrollElement(el) { el.classList.add('visible'); }
 
     function handleScrollAnimation() {
       scrollElements.forEach(el => {
-        if (elementInView(el, 100)) {
-          displayScrollElement(el);
-        } else {
-          // Optional: hideScrollElement(el);
-        }
+        if (elementInView(el, 100)) displayScrollElement(el);
       });
     }
 
-    window.addEventListener('scroll', () => {
-      handleScrollAnimation();
-    });
-
-    window.addEventListener('load', () => {
-      handleScrollAnimation();
-    });
+    window.addEventListener('scroll', handleScrollAnimation);
+    window.addEventListener('load', handleScrollAnimation);
   </script>
 
 </body>
 </html>
+
 
