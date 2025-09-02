@@ -140,7 +140,7 @@
     <p class="fade-slide">I followed a user-centered approach:</p>
     <ul class="fade-slide">
       <li>Researched workflows of triathletes and multi-sport users</li>
-      <li>Mapped pain points in Garmin’s existing flow</li>
+      <li>Mapped pain points in Garmins existing flow</li>
       <li>Created UI mockups and interaction flows tailored for wearable devices</li>
       <li>Iterated designs based on usability feedback</li>
     </ul>
@@ -170,7 +170,7 @@
   </footer>
 
   <script>
-    const scrollElements = document.querySelectorAll('.fade-slide, header, footer, .back-link');
+    const scrollElements = document.querySelectorAll('.fade-slide, header, footer, p, .back-link');
 
     function elementInView(el, offset = 0) {
       const elementTop = el.getBoundingClientRect().top;
@@ -181,7 +181,7 @@
 
     function handleScrollAnimation() {
       scrollElements.forEach(el => {
-        if (elementInView(el, 100)) displayScrollElement(el);
+        if (elementInView(el, 0)) displayScrollElement(el);
       });
     }
 

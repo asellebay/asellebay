@@ -216,12 +216,13 @@
     const elements = [
       document.querySelector('header'),
       ...document.querySelectorAll('main img, main h2, main p, main ul, .figma-embed, .back-link'),
-      document.querySelector('footer')
+      document.querySelector('footer'),
+      document.querySelector('footer p')
     ];
 
     function isInViewport(el) {
       const rect = el.getBoundingClientRect();
-      return rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.85;
+      return rect.top <= (window.innerHeight || document.documentElement.clientHeight);
     }
 
     function checkAnimations() {
